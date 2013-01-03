@@ -1,6 +1,5 @@
 package com.fhxapp.cstroke;
 
-//import org.eclipse.swt.graphics.Rectangle;
 import android.graphics.Rect;
 
 class SimplePolygon {

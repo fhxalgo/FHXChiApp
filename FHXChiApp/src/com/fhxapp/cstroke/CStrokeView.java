@@ -5,9 +5,6 @@ import java.util.List;
 
 import javax.microedition.khronos.opengles.GL;
 
-import com.SampleCanvas.R;
-
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,7 +20,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 class CStrokeView extends SurfaceView implements SurfaceHolder.Callback {
-	private static final String TAG = "BallBounces";
+	private static final String TAG = "CStrokeView";
 
 	private boolean drawing;
 	private boolean stopThread = false;
