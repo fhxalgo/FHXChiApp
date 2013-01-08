@@ -6,32 +6,62 @@
     android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/TextView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello" />
 
+    <LinearLayout
+        android:id="@+id/action_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
+        <Button
+            android:id="@+id/demo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:onClick="runMe"
+            android:text="@string/demo" />
 
+        <Button
+            android:id="@+id/drawdemo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:onClick="resetDraw"
+            android:text="@string/draw" />
 
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="runMe"
-        android:text="@string/run" />
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:id="@+id/linearView1"
+    <FrameLayout
+        android:id="@+id/strokesview1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="140dp"
+        android:layout_gravity="fill_vertical"
+        android:layout_weight="0.45"
+        android:background="@drawable/test_bg1" >
+    </FrameLayout>
 
-    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/drawview1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="fill_vertical"
+        android:layout_weight="1"
+        android:background="@drawable/ic_launcher" >
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/matched_words"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

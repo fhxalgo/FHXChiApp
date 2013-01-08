@@ -1,30 +1,57 @@
 package com.fhxapp.cstroke;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class DrawPanel extends SurfaceView implements Runnable {
+public class DrawPanel2 extends SurfaceView implements Runnable {
 	private Paint mPaint;
 	private List<Path> pointsToDraw;
 	Thread t = null;
 	SurfaceHolder holder;
-	boolean isItOk = false;
+	boolean isItOk = true;
 
-	public DrawPanel(Context context, List<Path> drawPoints, Paint paint) {
+	public DrawPanel2(Context context, List<Path> list) {
+		super(context);
+		
+		//pointsToDraw = new ArrayList<Path>();
+		this.pointsToDraw = list;
+		holder = getHolder();
+		
+		initPaint();
+	}
+	
+	public DrawPanel2(Context context, List<Path> drawPoints, Paint paint) {
 		super(context);
 		pointsToDraw = drawPoints;
 		mPaint = paint;
 
 		holder = getHolder();
 	}
+	
+	public void initPaint() {
+		// set up paint
+		mPaint = new Paint();
+		mPaint.setDither(true);
+		mPaint.setColor(Color.RED);
+		mPaint.setStyle(Paint.Style.STROKE);
+		mPaint.setStrokeJoin(Paint.Join.ROUND);
+		mPaint.setStrokeCap(Paint.Cap.ROUND);
+		mPaint.setStrokeWidth(20);		
+	}
 
+	public void setPointsToDraw(List<Path> list) {
+		this.pointsToDraw = list;
+	}
+	
 	public void run() {
 		// TODO Auto-generated method stub
 		while (isItOk == true) {
@@ -42,12 +69,13 @@ public class DrawPanel extends SurfaceView implements Runnable {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
+		//Log.i("onDraw: ", "pointsToDraw:"+pointsToDraw.size());
+		
 		super.onDraw(canvas);
 		synchronized (pointsToDraw) {
 			for (Path path : pointsToDraw) {
 				canvas.drawPath(path, mPaint);
-				Log.i("onDraw: ", "path:"+path);
+				//Log.i("onDraw: ", "path:"+path);
 			}
 		}
 	}

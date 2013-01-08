@@ -3,6 +3,9 @@
 
     <string name="hello">Welcome to Chinese Learning App</string>
     <string name="app_name">FHXChiAppBeta</string>
-    <string name="run">Button</string>
+    <string name="demo">Demo</string>
+    <string name="draw">Draw</string>
+    
+    <string name="matched_words">Matched Words</string>
 
 </resources>
